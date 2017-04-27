@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Container, Header, Content, Body, Title, H2, Text } from 'native-base';
+import { Container, Content, Footer, FooterTab, Form, Item, Input, Button, View, H2, Text } from 'native-base';
 
+import MyHeader from './MyHeader';
 import checkTime from '../utilities/time';
 
 export default class Prompt extends Component {
@@ -8,15 +9,28 @@ export default class Prompt extends Component {
     return (
       <Container>
 
-        <Header>
-          <Body>
-            <Title>timewise</Title>
-          </Body>
-        </Header>
+        <MyHeader />
 
         <Content>
-          <H2>It is {checkTime()}, what are you up to?</H2>
+          <View style={{margin: 20}}>
+            <H2>It is {checkTime()},</H2>
+            <H2>what are you up to?</H2>
+          </View>
+
+          <Form>
+             <Item>
+                <Input placeholder="sleeping..."/>
+             </Item>
+          </Form>
         </Content>
+
+        <Footer>
+          <FooterTab>
+            <Button primary full>
+              <Text style={{color: "white"}}>Submit</Text>
+            </Button>
+          </FooterTab>
+        </Footer>
 
       </Container>
     )
