@@ -2,47 +2,32 @@ import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { Container, Header, Content, H1, Text } from 'native-base';
 
-import Picture from './components/Picture';
-import Property from './components/Property';
+import Home from './components/Home';
+import Prompt from './components/Prompt'
 
 export default class App extends Component{
   render() {
     return (
-      <Container>
-        <Content>
-          <H1 style={{
-            color: 'red',
-            fontWeight: 'bold',
-            textAlign: 'center'
-          }}>
-            timewise.
-          </H1>
-          <Text> A personal fitness tracker</Text>
-          <Picture />
-          <Property activity='knitting' />
-        </Content>
-      </Container>
+      <Prompt />
     )
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'white',
-  },
-  welcome: {
-    fontSize: 25,
-    textAlign: 'center',
-    margin: 50,
-    color: 'red',
-    fontWeight: 'bold',
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+// import React, { Component } from 'react';
+// import { Router, Scene } from 'react-native-router-flux';
+
+// import PageOne from './pageOne';
+// import PageTwo from './pageTwo';
+
+// export default class App extends Component {
+//   render() {
+//     return (
+//       <Router hideNavBar= "true">
+//         <Scene key="root">
+//           <Scene key="pageOne" component={PageOne} title="PageOne" initial={true} />
+//           <Scene key="pageTwo" component={PageTwo} title="PageTwo" />
+//         </Scene>
+//       </Router>
+//     )
+//   }
+// }
