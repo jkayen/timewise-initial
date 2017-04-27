@@ -5,7 +5,7 @@ export default class Property extends Component {
   render() {
     return (
       <View>
-        <Text>You have spent all your time{this.props.activity}!</Text>
+        <Text>You have spent all your time {this.props.activity}!</Text>
       </View>
     )
   }
