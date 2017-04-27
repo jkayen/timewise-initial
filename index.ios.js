@@ -12,20 +12,21 @@ import {
   View
 } from 'react-native';
 
+import Picture from './Components/Picture';
+import Property from './Components/Property';
+
 export default class timewise extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+         timewise.
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.ios.js
+          A personal fitness tracker
         </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        <Picture />
+        <Property activity='knitting' />
       </View>
     );
   }
@@ -36,12 +37,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'white',
   },
   welcome: {
-    fontSize: 20,
+    fontSize: 25,
     textAlign: 'center',
-    margin: 10,
+    margin: 50,
+    color: 'red',
+    fontWeight: 'bold',
   },
   instructions: {
     textAlign: 'center',
