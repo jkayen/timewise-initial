@@ -5,6 +5,11 @@ import MyHeader from './MyHeader';
 import checkTime from '../utilities/time';
 
 export default class Prompt extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {activity: ''};
+  }
+
   render() {
     return (
       <Container>
@@ -19,7 +24,10 @@ export default class Prompt extends Component {
 
           <Form>
              <Item>
-                <Input placeholder="sleeping..."/>
+                <Input
+                  placeholder="sleeping..."
+                  onChangeText={text => this.setState({text})}
+                />
              </Item>
           </Form>
         </Content>
