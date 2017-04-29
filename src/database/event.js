@@ -1,7 +1,5 @@
 import { AsyncStorage } from 'react-native';
 
-import record from './initiate';
-
 // set new event value
 const createEventValue = (name, comment = null, start = Date.now()) => {
   return {name, comment, start, next: null}
