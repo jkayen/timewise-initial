@@ -4,6 +4,8 @@
  * @flow
  */
 
+import './ReactotronConfig';
+
 import React, { Component } from 'react';
 import {
   AppRegistry,

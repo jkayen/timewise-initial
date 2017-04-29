@@ -5,7 +5,7 @@ const createEventValue = (name, comment = null, start = Date.now()) => {
   return {name, comment, start, next: null}
 }
 
-export default function event (name, comment, date) {
+export default function newEvent (name, comment, date) {
   let currKey, prevEvent;
   const currVal = JSON.stringify(createEventValue(name, date, comment));
   // set currKey to nextEventId and create new event in storage

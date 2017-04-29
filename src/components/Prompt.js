@@ -4,16 +4,17 @@ import { Container, Content, Footer, FooterTab, Form, Item, Input, Button, View,
 
 import MyHeader from './MyHeader';
 import checkTime from '../utilities/time';
-import event from '../database/event';
+import newEvent from '../database/event';
 
 export default class Prompt extends Component {
   constructor(props) {
     super(props)
     this.state = {activity: ''};
+    this.submitEntry = this.submitEntry.bind(this)
   }
 
   submitEntry() {
-    return event(this.state.activity)
+    return newEvent(this.state.activity)
   }
 
   render() {
@@ -32,7 +33,7 @@ export default class Prompt extends Component {
              <Item>
                 <Input
                   placeholder="sleeping..."
-                  onChangeText={text => this.setState({text})}
+                  onChangeText={text => this.setState({activity: text})}
                 />
              </Item>
           </Form>
