@@ -6,7 +6,7 @@ import Prompt from './Prompt';
 import { timeDiff } from '../utilities/time';
 
 // HOMESCREEN
-export default class HomeScreen extends Component {
+export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -53,12 +53,12 @@ export default class HomeScreen extends Component {
           {
           this.state.currentEventId ? (
             <View>
-              <H3>It's been {timeDiff(this.state.currentEventStart)}</H3>
+              <H3>It's been{timeDiff(this.state.currentEventStart)}</H3>
               <Button
                 iconLeft
                 onPress={() => navigate('Prompt')}>
                 <Icon name='beer' />
-                <Text>Are you still </Text>
+                <Text>No longer </Text>
                 <Text>{this.state.currentEventName}?</Text>
               </Button>
             </View>
@@ -78,7 +78,8 @@ export default class HomeScreen extends Component {
             <Button>
               <Text>Analysis</Text>
             </Button>
-            <Button>
+            <Button
+              onPress={() => navigate('Settings')}>
               <Text>Settings</Text>
             </Button>
           </FooterTab>
