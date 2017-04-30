@@ -4,8 +4,10 @@ import { StackNavigator } from 'react-navigation';
 // import { Provider } from 'react-redux';
 // import { createStore } from 'redux';
 
-import HomeScreen from './components/Home';
+import Home from './components/Home';
 import Prompt from './components/Prompt';
+import Settings from './components/Settings';
+import Refresh from './components/Refresh';
 
 
 
@@ -13,20 +15,32 @@ import Prompt from './components/Prompt';
 class App extends Component {
   render() {
     return (
-      <HomeScreen />
+      <Home />
     )
   }
 }
 
 const timewise = StackNavigator({
   Home: {
-    screen: HomeScreen,
+    screen: Home,
     navigationOptions: {
       header: null
     }
   },
   Prompt: {
     screen: Prompt,
+    navigationOptions: {
+      header: null
+    }
+  },
+  Settings: {
+    screen: Settings,
+    navigationOptions: {
+      header: null
+    }
+  },
+  Refresh: {
+    screen: Refresh,
     navigationOptions: {
       header: null
     }

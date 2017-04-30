@@ -18,7 +18,7 @@ export default class Prompt extends Component {
   }
 
   render() {
-    const { navigate } = this.props.navigation
+    const { navigate } = this.props.navigation;
     return (
       <Container>
         <MyHeader />
@@ -34,6 +34,7 @@ export default class Prompt extends Component {
                 <Input
                   placeholder="sleeping..."
                   onChangeText={text => this.setState({activity: text})}
+                  autoCapitalize="none"
                 />
              </Item>
           </Form>
