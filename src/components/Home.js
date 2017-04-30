@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Container, Content, View, H1, H3, Text , Button, Icon} from 'native-base';
+import { Container, Content, View, H1, H3, Text , Button, Icon, Footer, FooterTab} from 'native-base';
+import { AsyncStorage } from 'react-native';
 
 import Prompt from './Prompt';
-// import checkLastEvent from '../database/checkLastEvent';
+import { timeDiff } from '../utilities/time';
 
 // HOMESCREEN
 export default class HomeScreen extends Component {
@@ -10,17 +11,33 @@ export default class HomeScreen extends Component {
     super(props);
     this.state = {
       currentEventId: '',
-      currentEventTime: ''
+      currentEventStart: '',
+      currentEventName: ''
     }
   }
-  // componentWillMount() {
-  //   return AsyncStorage.getItem('nextEventId')
-  //   .then(value => {
-  //     if (value) {
-  //       return `entry_${value - 1}`;
-  //     }
-  //   })
-  // }
+  componentWillMount() {
+    AsyncStorage.getItem('nextEventId')
+    .then(value => {
+      let curr;
+      if (value) {
+        curr = `event_${value - 1}`;
+        this.setState({currentEventId: curr});
+      }
+      return curr;
+    })
+    .then(() => {
+      AsyncStorage.getItem(this.state.currentEventId)
+      .then(value => {
+        console.log('VALUE', value)
+        const obj = JSON.parse(value);
+        this.setState({
+          currentEventName: obj.name,
+          currentEventStart: obj.start
+        })
+      })
+    })
+  }
+
   render() {
     const { navigate } = this.props.navigation;
     return (
@@ -36,8 +53,14 @@ export default class HomeScreen extends Component {
           {
           this.state.currentEventId ? (
             <View>
-              <H3>It's been </H3>
-              <Button />
+              <H3>It's been {timeDiff(this.state.currentEventStart)}</H3>
+              <Button
+                iconLeft
+                onPress={() => navigate('Prompt')}>
+                <Icon name='beer' />
+                <Text>Are you still </Text>
+                <Text>{this.state.currentEventName}?</Text>
+              </Button>
             </View>
           ) : (
             <Button
@@ -49,6 +72,17 @@ export default class HomeScreen extends Component {
           )
           }
         </Content>
+
+        <Footer>
+          <FooterTab>
+            <Button>
+              <Text>Analysis</Text>
+            </Button>
+            <Button>
+              <Text>Settings</Text>
+            </Button>
+          </FooterTab>
+        </Footer>
       </Container>
     )
   }

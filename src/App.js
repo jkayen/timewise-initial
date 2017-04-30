@@ -13,7 +13,7 @@ import Prompt from './components/Prompt';
 class App extends Component {
   render() {
     return (
-      <Homescreen />
+      <HomeScreen />
     )
   }
 }

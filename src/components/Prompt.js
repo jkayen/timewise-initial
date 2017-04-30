@@ -3,7 +3,7 @@ import { AsyncStorage } from 'react-native';
 import { Container, Content, Footer, FooterTab, Form, Item, Input, Button, View, H2, Text } from 'native-base';
 
 import MyHeader from './MyHeader';
-import checkTime from '../utilities/time';
+import { checkTime } from '../utilities/time';
 import newEvent from '../database/newEvent';
 
 export default class Prompt extends Component {
@@ -44,8 +44,8 @@ export default class Prompt extends Component {
             <Button
               primary full
               onPress={() => {
-                this.submitEntry;
-                navigate('Home')
+                this.submitEntry();
+                navigate('Home');
               }}>
               <Text style={{color: "white"}}>Submit</Text>
             </Button>
