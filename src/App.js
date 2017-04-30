@@ -1,15 +1,38 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
-import { Container, Header, Content, H1, Text } from 'native-base';
+import { AppRegistry } from 'react-native';
+import { StackNavigator } from 'react-navigation';
+// import { Provider } from 'react-redux';
+// import { createStore } from 'redux';
 
-import Home from './components/Home';
-import Prompt from './components/Prompt'
+import HomeScreen from './components/Home';
+import Prompt from './components/Prompt';
 
-export default class App extends Component{
+
+
+// HOMESCREEN
+class App extends Component {
   render() {
     return (
-      <Prompt />
+      <Homescreen />
     )
   }
 }
+
+const timewise = StackNavigator({
+  Home: {
+    screen: HomeScreen,
+    navigationOptions: {
+      header: null
+    }
+  },
+  Prompt: {
+    screen: Prompt,
+    navigationOptions: {
+      header: null
+    }
+  }
+})
+
+AppRegistry.registerComponent('timewise', () => timewise);
+
 
