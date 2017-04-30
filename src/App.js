@@ -1,33 +1,38 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
-import { Container, Header, Content, H1, Text } from 'native-base';
+import { AppRegistry } from 'react-native';
+import { StackNavigator } from 'react-navigation';
+// import { Provider } from 'react-redux';
+// import { createStore } from 'redux';
 
-import Home from './components/Home';
-import Prompt from './components/Prompt'
+import HomeScreen from './components/Home';
+import Prompt from './components/Prompt';
 
-export default class App extends Component{
+
+
+// HOMESCREEN
+class App extends Component {
   render() {
     return (
-      <Prompt />
+      <HomeScreen />
     )
   }
 }
 
-// import React, { Component } from 'react';
-// import { Router, Scene } from 'react-native-router-flux';
+const timewise = StackNavigator({
+  Home: {
+    screen: HomeScreen,
+    navigationOptions: {
+      header: null
+    }
+  },
+  Prompt: {
+    screen: Prompt,
+    navigationOptions: {
+      header: null
+    }
+  }
+})
 
-// import PageOne from './pageOne';
-// import PageTwo from './pageTwo';
+AppRegistry.registerComponent('timewise', () => timewise);
 
-// export default class App extends Component {
-//   render() {
-//     return (
-//       <Router hideNavBar= "true">
-//         <Scene key="root">
-//           <Scene key="pageOne" component={PageOne} title="PageOne" initial={true} />
-//           <Scene key="pageTwo" component={PageTwo} title="PageTwo" />
-//         </Scene>
-//       </Router>
-//     )
-//   }
-// }
+

@@ -3,8 +3,8 @@ import { AsyncStorage } from 'react-native';
 import { Container, Content, Footer, FooterTab, Form, Item, Input, Button, View, H2, Text } from 'native-base';
 
 import MyHeader from './MyHeader';
-import checkTime from '../utilities/time';
-import newEvent from '../database/event';
+import { checkTime } from '../utilities/time';
+import newEvent from '../database/newEvent';
 
 export default class Prompt extends Component {
   constructor(props) {
@@ -14,19 +14,19 @@ export default class Prompt extends Component {
   }
 
   submitEntry() {
-    return newEvent(this.state.activity)
+    newEvent(this.state.activity);
   }
 
   render() {
+    const { navigate } = this.props.navigation
     return (
       <Container>
-
         <MyHeader />
 
         <Content>
           <View style={{margin: 20}}>
             <H2>It is {checkTime()},</H2>
-            <H2>what are you up to?</H2>
+            <H2>I am currently...</H2>
           </View>
 
           <Form>
@@ -43,7 +43,10 @@ export default class Prompt extends Component {
           <FooterTab>
             <Button
               primary full
-              onPress={this.submitEntry}>
+              onPress={() => {
+                this.submitEntry();
+                navigate('Home');
+              }}>
               <Text style={{color: "white"}}>Submit</Text>
             </Button>
           </FooterTab>
