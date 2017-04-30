@@ -14,8 +14,9 @@ export default class Home extends Component {
       currentEventStart: '',
       currentEventName: ''
     }
+    this.updateEvent = this.updateEvent.bind(this);
   }
-  componentWillMount() {
+  updateEvent() {
     AsyncStorage.getItem('nextEventId')
     .then(value => {
       let curr;
@@ -36,6 +37,10 @@ export default class Home extends Component {
         })
       })
     })
+  }
+
+  componentWillMount() {
+    this.updateEvent();
   }
 
   render() {
