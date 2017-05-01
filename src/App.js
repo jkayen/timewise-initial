@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Prompt from './components/Prompt';
 import Settings from './components/Settings';
 import Refresh from './components/Refresh';
+import Analysis from './components/Analysis';
 
 // HOMESCREEN
 class App extends Component {
@@ -37,6 +38,12 @@ const timewise = StackNavigator({
   },
   Refresh: {
     screen: Refresh,
+    navigationOptions: {
+      header: null
+    }
+  },
+  Analysis: {
+    screen: Analysis,
     navigationOptions: {
       header: null
     }

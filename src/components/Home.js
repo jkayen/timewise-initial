@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Container, Content, View, H1, H3, Text , Button, Icon, Footer, FooterTab} from 'native-base';
 import { AsyncStorage } from 'react-native';
 
-import Prompt from './Prompt';
 import { timeDiff } from '../utilities/time';
 
 // HOMESCREEN
@@ -79,7 +78,8 @@ export default class Home extends Component {
 
         <Footer>
           <FooterTab>
-            <Button>
+            <Button
+              onPress={() => navigate('Analysis')}>
               <Text>Analysis</Text>
             </Button>
             <Button

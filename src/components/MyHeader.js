@@ -7,7 +7,10 @@ export default class MyHeader extends Component {
       <Container>
         <Header>
           <Body>
-            <Title style={{color: "red"}}>timewise.</Title>
+            <Title
+              style={{color: "red"}}>
+              timewise.
+            </Title>
           </Body>
         </Header>
       </Container>
