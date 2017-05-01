@@ -4,7 +4,6 @@ import { Container, Header, Body, Title } from 'native-base';
 export default class MyHeader extends Component {
   render() {
     return (
-      <Container>
         <Header>
           <Body>
             <Title
@@ -13,7 +12,6 @@ export default class MyHeader extends Component {
             </Title>
           </Body>
         </Header>
-      </Container>
     )
   }
 }

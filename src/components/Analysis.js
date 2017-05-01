@@ -31,12 +31,15 @@ export default class Analysis extends Component {
       <Container>
         <MyHeader />
         <Content>
-          <H2>You've spent most of your time {this.state.longest}</H2>
-          <H3>Here's how the rest of your time stacks up:</H3>
+          <H2 style={{position: 'relative', top: 50}}>You've spent most of your time </H2>
+          <H2 style={{fontWeight: 'bold', position: 'relative', top: 50}}>{this.state.longest}.</H2>
+          <H3 style={{position: 'relative', top: 100}}>
+            Here's how the rest of your time stacks up:
+          </H3>
           {
             this.state.ordered.map((v, i) => {
               return (
-                <ListItem key={i}>
+                <ListItem key={i} style={{position: 'relative', top:100}}>
                   <Text>{v.name}: {Math.floor(v.duration / this.state.total * 100)}%</Text>
                 </ListItem>
               )

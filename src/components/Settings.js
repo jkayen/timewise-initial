@@ -7,6 +7,7 @@ const Settings = (props) => {
     <Container>
       <Content>
         <Button
+          style={{position: 'relative', top: 200}}
           block danger
           onPress={() => navigate('Refresh')}>
           <Text>Erase the past, start anew.</Text>

@@ -60,24 +60,37 @@ export default class Home extends Component {
             <H1 style={{
               color: 'red',
               fontWeight: 'bold',
-              textAlign: 'center'}}>
+              textAlign: 'center',
+              fontSize: 30,
+              position: 'relative',
+              top: 30
+            }}>
               timewise.
             </H1>
           </Row>
           <Row style={{height: 50}}>
             <Text style={{
-              textAlign: 'center'
+              textAlign: 'center',
+              position: 'relative',
+              top: 10
             }}>A personal time tracker</Text>
           </Row>
 
-        <Row style={{height: 100}}>
+        <Row style={{
+          height: 100,
+          position: 'relative',
+          top: 100
+        }}>
           {
           this.state.currentEventId ? (
             <View>
-              <H3>It's been {timeDiff(this.state.currentEventStart)}</H3>
+              <H3
+                style={{textAlign: 'center', position: 'relative', top: 50}}
+              >It's been {timeDiff(this.state.currentEventStart)}</H3>
               <Button
                 info full
                 iconLeft
+                style={{position: 'relative', top:100}}
                 onPress={() => navigate('Prompt')}>
                 <Icon name='beer' />
                 <Text>No longer </Text>
