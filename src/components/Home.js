@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Content, View, H1, H3, Text , Button, Icon, Footer, FooterTab} from 'native-base';
 import { AsyncStorage } from 'react-native';
+import { Grid, Column, Row } from 'react-native-easy-grid';
 
 import { timeDiff } from '../utilities/time';
 
@@ -44,20 +45,38 @@ export default class Home extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <Container>
+      <Container style={{backgroundColor: 'white'}}>
         <Content>
-          <H1 style={{
-            color: 'red',
-            fontWeight: 'bold',
-            textAlign: 'center'}}>
-            timewise.
-          </H1>
-          <Text>A personal fitness tracker</Text>
+        <Grid>
+        <Row style={{height: 100}}>
+        </Row>
+          <View style={{
+            alignItems: "center",
+            flexDirection: "column",
+            justifyContent: "center"
+          }}>
+
+          <Row style={{height: 50}}>
+            <H1 style={{
+              color: 'red',
+              fontWeight: 'bold',
+              textAlign: 'center'}}>
+              timewise.
+            </H1>
+          </Row>
+          <Row style={{height: 50}}>
+            <Text style={{
+              textAlign: 'center'
+            }}>A personal time tracker</Text>
+          </Row>
+
+        <Row style={{height: 100}}>
           {
           this.state.currentEventId ? (
             <View>
               <H3>It's been {timeDiff(this.state.currentEventStart)}</H3>
               <Button
+                info full
                 iconLeft
                 onPress={() => navigate('Prompt')}>
                 <Icon name='beer' />
@@ -67,13 +86,17 @@ export default class Home extends Component {
             </View>
           ) : (
             <Button
+              info full
               iconLeft
               onPress={() => navigate('Prompt')}>
               <Icon name='beer' />
               <Text>What are you up to?</Text>
             </Button>
           )
-          }
+        }
+        </Row>
+        </View>
+        </Grid>
         </Content>
 
         <Footer>
