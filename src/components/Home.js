@@ -29,7 +29,6 @@ export default class Home extends Component {
     .then(() => {
       AsyncStorage.getItem(this.state.currentEventId)
       .then(value => {
-        console.log('VALUE', value)
         const obj = JSON.parse(value);
         this.setState({
           currentEventName: obj.name,
@@ -58,7 +57,7 @@ export default class Home extends Component {
           {
           this.state.currentEventId ? (
             <View>
-              <H3>It's been{timeDiff(this.state.currentEventStart)}</H3>
+              <H3>It's been {timeDiff(this.state.currentEventStart)}</H3>
               <Button
                 iconLeft
                 onPress={() => navigate('Prompt')}>

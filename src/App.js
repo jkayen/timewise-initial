@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-// import { Provider } from 'react-redux';
-// import { createStore } from 'redux';
 
 import Home from './components/Home';
 import Prompt from './components/Prompt';
 import Settings from './components/Settings';
 import Refresh from './components/Refresh';
-
-
 
 // HOMESCREEN
 class App extends Component {

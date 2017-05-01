@@ -20,9 +20,9 @@ const timeDiff = (then, now = Date.now()) => {
     s = Math.floor(diff);
   }
   s = s ? `${s} seconds` : ``;
-  m = m ? `${m} minutes` : ``;
-  h = h ? `${h} hours` : ``;
-  return `${h} ${m} ${s}`
+  m = m ? `${m} minutes ` : ``;
+  h = h ? `${h} hours ` : ``;
+  return `${h}${m}${s}`
 }
 
 module.exports = {checkTime, timeDiff};
