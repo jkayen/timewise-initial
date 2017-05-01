@@ -13,7 +13,6 @@ const update = () => {
   .then(() => {
     AsyncStorage.getItem(this.state.currentEventId)
     .then(value => {
-      console.log('VALUE', value)
       const obj = JSON.parse(value);
       this.setState({
         currentEventName: obj.name,
