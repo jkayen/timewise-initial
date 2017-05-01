@@ -29,11 +29,13 @@ export default class Home extends Component {
     .then(() => {
       AsyncStorage.getItem(this.state.currentEventId)
       .then(value => {
-        const obj = JSON.parse(value);
-        this.setState({
-          currentEventName: obj.name,
-          currentEventStart: obj.start
-        })
+        if (value) {
+          const obj = JSON.parse(value);
+          this.setState({
+            currentEventName: obj.name,
+            currentEventStart: obj.start
+          })
+        }
       })
     })
   }
